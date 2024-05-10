@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="02004d9b-9eca-4cbc-aaff-ed881163fb44" name="Changes" comment="modified the trip endpoint needs to check how the delay works">
+      <change beforePath="$PROJECT_DIR$/src/utils/trip_utils.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/trip_utils.mjs" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;GRodler&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/GRodler/trentino-trasporti-backend.git",
+    "accountId": "5a2aaafe-14f3-4660-bd43-f095eacf78a9"
+  }
+}]]></component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2fMgJ4cF4s9OrlwO6kA9oDyvlDW" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/home/guido/Scrivania/Github/trentino-trasporti-backend",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "/var/lib/snapd/snap/webstorm/373/plugins/javascript-plugin/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-WS-241.15989.105" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="02004d9b-9eca-4cbc-aaff-ed881163fb44" name="Changes" comment="" />
+      <created>1713616285384</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1713616285384</updated>
+      <workItem from="1713616286478" duration="10360000" />
+      <workItem from="1714040607742" duration="8020000" />
+      <workItem from="1714511482065" duration="1130000" />
+      <workItem from="1714513040014" duration="103000" />
+      <workItem from="1714552860907" duration="609000" />
+      <workItem from="1714828526974" duration="1524000" />
+      <workItem from="1715361940833" duration="12982000" />
+    </task>
+    <task id="LOCAL-00001" summary="ora vengono eliminate le stazioni gia passate">
+      <option name="closed" value="true" />
+      <created>1713629426041</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1713629426041</updated>
+    </task>
+    <task id="LOCAL-00002" summary="migliorate cose">
+      <option name="closed" value="true" />
+      <created>1713635991627</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1713635991627</updated>
+    </task>
+    <task id="LOCAL-00003" summary="implementato metodo per ricevere trip point to point">
+      <option name="closed" value="true" />
+      <created>1714051653849</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1714051653851</updated>
+    </task>
+    <task id="LOCAL-00004" summary="fixato problema sui trip urbani">
+      <option name="closed" value="true" />
+      <created>1714828823884</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1714828823884</updated>
+    </task>
+    <task id="LOCAL-00005" summary="finished the first part for giving a path to follow">
+      <option name="closed" value="true" />
+      <created>1715362973476</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1715362973476</updated>
+    </task>
+    <task id="LOCAL-00006" summary="reorganized in more utils files">
+      <option name="closed" value="true" />
+      <created>1715364747712</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1715364747712</updated>
+    </task>
+    <task id="LOCAL-00007" summary="modified the trip endpoint needs to check how the delay works">
+      <option name="closed" value="true" />
+      <created>1715379769927</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1715379769927</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="ora vengono eliminate le stazioni gia passate" />
+    <MESSAGE value="migliorate cose" />
+    <MESSAGE value="implementato metodo per ricevere trip point to point" />
+    <MESSAGE value="fixato problema sui trip urbani" />
+    <MESSAGE value="finished the first part for giving a path to follow" />
+    <MESSAGE value="modified trips sistem important to check how the delay works" />
+    <MESSAGE value="reorganized in more utils files" />
+    <MESSAGE value="modified the trip endpoint needs to check how the delay works" />
+    <option name="LAST_COMMIT_MESSAGE" value="modified the trip endpoint needs to check how the delay works" />
+  </component>
+</project>

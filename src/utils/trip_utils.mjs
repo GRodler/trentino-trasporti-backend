@@ -69,7 +69,6 @@ async function convertTrip(raw_data,manager){
     let stations = [];
     const delay = raw_data.delay;
     const position_index = raw_data.lastSequenceDetection;
-    console.log(raw_data.tripHeadsign)
     const trip_name =  raw_data.tripHeadsign;
     for (let i in raw_data.stopTimes){
         const station = await manager.getStationId(raw_data.stopTimes[i].stopId)
