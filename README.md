@@ -1,5 +1,4 @@
 # trentino-trasporti-backend
-# trentino-trasporti-backend
 
 ## istruzioni per quella talpa di modena
 
