@@ -1,5 +1,5 @@
 import Extractor from "../extractor.mjs";
-import {CutDirectionArray,convertTrips} from  "../../utils/trip_utils.mjs"
+import {CutDirectionArray,convertTrips} from "../../utils/trip_utils.mjs"
 
 export default class TripsHandler{
     constructor(stations,routes) {
