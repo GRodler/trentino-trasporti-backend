@@ -8,6 +8,7 @@ import routesManager from "./data/routes/routesManager.mjs";
 
 const app = express();
 const port = 4000;
+const router = express.Router();
 
 //inizializzazione stazioni
 console.log("sincronizzando le stazioni...")
@@ -28,7 +29,7 @@ app.listen(port,()=>{
 
 
 //endpoint api
-app.get("/v1/fermate",async (request,response)=>{//usa i metodi basati sulla classe stations_manager
+router.get("/v1/fermate",async (request,response)=>{//usa i metodi basati sulla classe stations_manager
     const stopName = request.query.stopName;
     if (typeof(stopName) === 'undefined' || stopName === ""){
         response.send(await m.stations)
@@ -37,14 +38,14 @@ app.get("/v1/fermate",async (request,response)=>{//usa i metodi basati sulla cla
     }
 });
 
-app.get("/v1/viaggi_fermata",async (request,response)=>{
+router.get("/v1/viaggi_fermata",async (request,response)=>{
     const stopId = request.query.stopId;
     const stopName = request.query.stopName;
     const t = new TripsHandler(m,r);
     response.send(await t.getTrips(stopId,stopName));
 });
 
-app.get("/v1/viaggi",async (request,response)=>{
+router.get("/v1/viaggi",async (request,response)=>{
     const start = request.query.start;
     const arrival = request.query.arrival;
     const time = request.query.time;
@@ -52,3 +53,5 @@ app.get("/v1/viaggi",async (request,response)=>{
     response.send(await t.getFinalTrip(start,arrival,time));
 
 });
+
+app.use(router);
