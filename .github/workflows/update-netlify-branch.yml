@@ -18,6 +18,8 @@ jobs:
 
       - name: Commit changes to netlify-branch
         run: |
+          git config --global user.email "guido.apple05@gmail.com"
+          git config --global user.name "Guido Rodler"
           git add .
           git commit -m "Update function directory from main branch"
           git push origin main:netlify-branch
