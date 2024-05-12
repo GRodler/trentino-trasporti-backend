@@ -5,14 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="02004d9b-9eca-4cbc-aaff-ed881163fb44" name="Changes" comment="modified the trip endpoint needs to check how the delay works">
-      <change afterPath="$PROJECT_DIR$/src/data/routes/routesManager.mjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/extractor.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/extractor.mjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/stations/route.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/routes/route.mjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/stations/stationsManager.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/stations/stationsManager.mjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/trips/tripsHandler.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/trips/tripsHandler.mjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/src/server.mjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/station_utils.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/station_utils.mjs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/trip_utils.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/trip_utils.mjs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -36,12 +28,12 @@
     &quot;assignee&quot;: &quot;GRodler&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/GRodler/trentino-trasporti-backend.git&quot;,
-    &quot;accountId&quot;: &quot;5a2aaafe-14f3-4660-bd43-f095eacf78a9&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/GRodler/trentino-trasporti-backend.git",
+    "accountId": "5a2aaafe-14f3-4660-bd43-f095eacf78a9"
   }
-}</component>
+}]]></component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -53,26 +45,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/guido/Scrivania/Github/trentino-trasporti-backend&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/var/lib/snapd/snap/webstorm/373/plugins/javascript-plugin/jsLanguageServicesImpl/external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/home/guido/Scrivania/Github/trentino-trasporti-backend",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "/var/lib/snapd/snap/webstorm/373/plugins/javascript-plugin/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/data/routes" />
-    </key>
-  </component>
+}]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -94,9 +81,7 @@
       <workItem from="1714513040014" duration="103000" />
       <workItem from="1714552860907" duration="609000" />
       <workItem from="1714828526974" duration="1524000" />
-      <workItem from="1715361940833" duration="13209000" />
-      <workItem from="1715421729725" duration="3191000" />
-      <workItem from="1715519356259" duration="4442000" />
+      <workItem from="1715361940833" duration="12982000" />
     </task>
     <task id="LOCAL-00001" summary="ora vengono eliminate le stazioni gia passate">
       <option name="closed" value="true" />
