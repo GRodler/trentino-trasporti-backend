@@ -1,0 +1,23 @@
+name: Update Netlify Branch
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Copy changes to function directory
+        run: cp -R src/data/. function/
+
+      - name: Commit changes to netlify-branch
+        run: |
+          git add .
+          git commit -m "Update function directory from main branch"
+          git push origin main:netlify-branch
