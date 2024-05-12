@@ -1,6 +1,8 @@
 # trentino-trasporti-backend
 
 ## istruzioni per quella talpa di modena
+url base: ```https://trentinotrasportibackend.netlify.app/.netlify/functions/server```
+
 
 End-point funzionanti:
 * ```/v1/fermate```:
