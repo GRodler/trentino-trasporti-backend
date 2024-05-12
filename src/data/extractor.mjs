@@ -38,7 +38,7 @@ export default class Extractor{
     /*
     given the stopId return the trips that are coming to that stop
      */
-    async getTrips(stopId,type,time=this.DATE_NOW,limit=30,){
+    async getTrips(stopId,type,time=this.DATE_NOW,limit=30000,){
         let url = this.APP_URL + "/" + this.TRIPS_PATH + "/?stopId=" + stopId + "&type=" + type + "&limit=" + limit + "&refDateTime="+ time ;
         const connection = new Connection(url);
         return await connection.getData();
