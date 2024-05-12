@@ -15,14 +15,14 @@ export function CutDirectionArray(data){
         for (let j in transit){
             if (transit[j].travelMode === "TRANSIT" ){
                 step.push({
-                    linea: routes[i].legs[0].steps[j].transitDetails.line.shortName,
-                    numero_passaggio : n_steps,
-                    ora_partenza : convertMillis(routes[i].legs[0].steps[j].transitDetails.departureTime.millis),
-                    ora_arrivo: convertMillis(routes[i].legs[0].steps[j].transitDetails.departureTime.millis),
-                    mezzo : routes[i].legs[0].steps[j].transitDetails.line.vehicle.name,
-                    stazioni:{
-                        partenza : createCostumStations(routes[i].legs[0].steps[j].transitDetails.departureStop,parseInt(j)),
-                        arrivo : createCostumStations(routes[i].legs[0].steps[j].transitDetails.arrivalStop,parseInt(j)+1 )}
+                    line: routes[i].legs[0].steps[j].transitDetails.line.shortName,
+                    steps_number : n_steps,
+                    departure_time : convertMillis(routes[i].legs[0].steps[j].transitDetails.departureTime.millis),
+                    arrival_time: convertMillis(routes[i].legs[0].steps[j].transitDetails.departureTime.millis),
+                    vehicle : routes[i].legs[0].steps[j].transitDetails.line.vehicle.name,
+                    stations:{
+                        departure : createCostumStations(routes[i].legs[0].steps[j].transitDetails.departureStop,parseInt(j)),
+                        arrival : createCostumStations(routes[i].legs[0].steps[j].transitDetails.arrivalStop,parseInt(j)+1 )}
                 });
                 n_steps ++;
             }
@@ -65,30 +65,32 @@ function shiftDelay(time,delay){
 /*
 convert the json result into a trip object
  */
-async function convertTrip(raw_data,manager){
+async function convertTrip(raw_data,manager,routes){
     let stations = [];
     const delay = raw_data.delay;
     const position_index = raw_data.lastSequenceDetection;
-    const trip_name =  raw_data.tripHeadsign;
+    let tmp = await routes.findRoute(raw_data.routeId)
+    const line = await tmp.longName;
     for (let i in raw_data.stopTimes){
         const station = await manager.getStationId(raw_data.stopTimes[i].stopId)
         stations.push({
-            stazione: {name : station.name ,id:station.id,lat:station.lat,lon:station.lon},
-            arrivo : checkDelay(raw_data.stopTimes[i].arrivalTime,i,position_index,delay),
-            partenza : checkDelay(raw_data.stopTimes[i].arrivalTime,i,position_index,delay)
+            station: {name : station.name ,id:station.id,lat:station.lat,lon:station.lon},
+            arrival : checkDelay(raw_data.stopTimes[i].arrivalTime,i,position_index,delay),
+            departure : checkDelay(raw_data.stopTimes[i].arrivalTime,i,position_index,delay)
         });
     }
-    return new trip(trip_name,delay,position_index,stations);
+
+    return new trip(line,delay,position_index,stations);
 }
 
 /*
 iterates in an array of trips raw data
  */
-export async function convertTrips(raw_data,manager){
+export async function convertTrips(raw_data,manager,routes){
     let output = [];
 
     for (let i in raw_data){
-        output.push(await convertTrip(raw_data[i],manager));
+        output.push(await convertTrip(raw_data[i],manager,routes));
     }
     return output;
 }

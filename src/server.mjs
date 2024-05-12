@@ -1,9 +1,9 @@
 import express, {query, request, response, Router} from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
-import Extractor from "./data/extractor.mjs";
 import StationsManager from "./data/stations/stationsManager.mjs";
 import TripsHandler from "./data/trips/tripsHandler.mjs";
+import routesManager from "./data/routes/routesManager.mjs";
 
 
 const app = express();
@@ -12,6 +12,10 @@ const port = 4000;
 //inizializzazione stazioni
 console.log("sincronizzando le stazioni...")
 const m = new StationsManager();
+//inizializzazione route
+console.log("sincronizzando le routes...")
+export const r = new routesManager();
+
 
 //inizializzazione roba di default express
 app.use(bodyParser.json()); //e necessario abilitare il middleware con la funzione use
@@ -27,7 +31,7 @@ app.listen(port,()=>{
 app.get("/v1/fermate",async (request,response)=>{//usa i metodi basati sulla classe stations_manager
     const stopName = request.query.stopName;
     if (typeof(stopName) === 'undefined' || stopName === ""){
-        response.send(await m.stops)
+        response.send(await m.stations)
     }else {
         response.send(await m.getStations(stopName));
     }
@@ -36,14 +40,15 @@ app.get("/v1/fermate",async (request,response)=>{//usa i metodi basati sulla cla
 app.get("/v1/viaggi_fermata",async (request,response)=>{
     const stopId = request.query.stopId;
     const stopName = request.query.stopName;
-    const t = new TripsHandler(m);
+    const t = new TripsHandler(m,r);
     response.send(await t.getTrips(stopId,stopName));
 });
 
 app.get("/v1/viaggi",async (request,response)=>{
     const start = request.query.start;
     const arrival = request.query.arrival;
-    const t = new TripsHandler(m);
-    response.send(await t.getFinalTrip(start,arrival));
+    const time = request.query.time;
+    const t = new TripsHandler(m,r);
+    response.send(await t.getFinalTrip(start,arrival,time));
 
 });

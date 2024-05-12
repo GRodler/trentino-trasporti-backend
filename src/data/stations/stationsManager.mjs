@@ -1,12 +1,13 @@
 import Extractor from "../extractor.mjs";
 import Station from "./station.mjs";
-import Route from "./route.mjs";
+import Route from "../routes/route.mjs";
 import {SortString,CalculateDistance} from "../../utils/station_utils.mjs"
 
 
 export default class StationsManager {
     constructor() {
-        this.stops = this.createStationsArray(); //e necessario utilizzare l'await ogni volta che si richiama l'attributo
+        this.e = new Extractor();
+        this.stations = this.createStationsArray(); //e necessario utilizzare l'await ogni volta che si richiama l'attributo
     }
 
     async extractRoutes(array){
@@ -17,8 +18,7 @@ export default class StationsManager {
         return routes;
     }
     async createStationsArray(){
-        const e = new Extractor();
-        const stops = await e.getStations();
+        const stops = await this.e.getStations();
 
         let repeated = [];
         let output = [];
@@ -27,7 +27,7 @@ export default class StationsManager {
 
             if (!repeated.includes(stops[i].stopName)){
                 output.push(new Station(stops[i].stopName,stops[i].stopId,stops[i].stopLat,stops[i].stopLon,await this.extractRoutes(stops[i].routes),stops[i].type))
-                //repeated.push(stops[i].stopName)
+                //repeated.push(stations[i].stopName)
             }
         }
 
@@ -39,7 +39,7 @@ export default class StationsManager {
      */
     async getStations(name){
         let output = [];
-        const stops = await this.stops;
+        const stops = await this.stations;
         for (let i in stops){
             if (stops[i].name.toLowerCase().includes(name.toLowerCase())) {
                 output.push(stops[i]);
@@ -54,7 +54,7 @@ export default class StationsManager {
      */
     async getStationId(id){
         let output = null;
-        const stops = await this.stops;
+        const stops = await this.stations;
         for (let i in stops){
             if (parseInt(stops[i].id) === parseInt(id)) {
                 output = stops[i];
@@ -68,7 +68,7 @@ export default class StationsManager {
     given a coordinate finds the nearest station
      */
     async FindNearest(lat,lon){
-        const stops = await this.stops;
+        const stops = await this.stations;
         let nearest = stops[0];//using geolib library it calculates the nearest known stop to the one given by the direction api
 
         let nearest_meter = CalculateDistance(stops[0].lat,stops[0].lon,lat,lon);

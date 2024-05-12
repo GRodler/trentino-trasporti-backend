@@ -16,7 +16,7 @@ export default class Extractor{
     }
 
     /*
-    fornisce la ricerca per nome sull'api grande e grossa (da ottimizzare)
+    gets the raw json file of the stations
     */
     async getStations(limit = -1,urban= "",){
         let url = this.APP_URL + "/" + this.STOPS_PATH + "/?";
@@ -48,6 +48,12 @@ export default class Extractor{
      */
     async getTripsRoute(routeId,type,time=this.DATE_NOW,limit=30,){
         let url = this.APP_URL + "/" + this.TRIPS_PATH + "/?routeId=" + routeId + "&type=" + type + "&limit=" + limit + "&refDateTime="+ time ;
+        const connection = new Connection(url);
+        return await connection.getData();
+    }
+
+    async getRoutes(){
+        let url = this.APP_URL + "/" + this.LINES_PATH
         const connection = new Connection(url);
         return await connection.getData();
     }

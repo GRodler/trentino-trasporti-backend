@@ -2,7 +2,7 @@ import geolib from "geolib";
 
 
 /*
-    given the stops and the names orders the stops by affinity with the name with self-completion
+    given the stations and the names orders the stations by affinity with the name with self-completion
  */
 export function SortString(stops,name){
     let output= [];
