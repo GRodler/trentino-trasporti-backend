@@ -36,7 +36,7 @@ export default class Extractor{
     }
 
     /*
-    dato il stop id della stazione returna tutti i viaggi di quella stazione
+    given the stopId return the trips that are coming to that stop
      */
     async getTrips(stopId,type,time=this.DATE_NOW,limit=30,){
         let url = this.APP_URL + "/" + this.TRIPS_PATH + "/?stopId=" + stopId + "&type=" + type + "&limit=" + limit + "&refDateTime="+ time ;
@@ -44,7 +44,7 @@ export default class Extractor{
         return await connection.getData();
     }
     /*
-    dato il route id restituisce i viaggi su quella route
+    given the routeId gives the trips in that route
      */
     async getTripsRoute(routeId,type,time=this.DATE_NOW,limit=30,){
         let url = this.APP_URL + "/" + this.TRIPS_PATH + "/?routeId=" + routeId + "&type=" + type + "&limit=" + limit + "&refDateTime="+ time ;
@@ -52,6 +52,9 @@ export default class Extractor{
         return await connection.getData();
     }
 
+    /*
+    returns all the routes
+     */
     async getRoutes(){
         let url = this.APP_URL + "/" + this.LINES_PATH
         const connection = new Connection(url);
