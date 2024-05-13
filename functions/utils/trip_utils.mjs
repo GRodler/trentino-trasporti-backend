@@ -16,7 +16,7 @@ export function CutDirectionArray(data){
             if (transit[j].travelMode === "TRANSIT" ){
                 step.push({
                     line: routes[i].legs[0].steps[j].transitDetails.line.shortName,
-                    steps_number : n_steps,
+                    step_number : n_steps,
                     departure_time : convertMillis(routes[i].legs[0].steps[j].transitDetails.departureTime.millis),
                     arrival_time: convertMillis(routes[i].legs[0].steps[j].transitDetails.departureTime.millis),
                     vehicle : routes[i].legs[0].steps[j].transitDetails.line.vehicle.name,
@@ -71,6 +71,8 @@ async function convertTrip(raw_data,manager,routes){
     const position_index = raw_data.lastSequenceDetection;
     let tmp = await routes.findRoute(raw_data.routeId)
     const line = await tmp.longName;
+    const end_arrival = raw_data.tripHeadsign;
+    const routeId = raw_data.routeId;
     for (let i in raw_data.stopTimes){
         const station = await manager.getStationId(raw_data.stopTimes[i].stopId)
         stations.push({
@@ -80,7 +82,7 @@ async function convertTrip(raw_data,manager,routes){
         });
     }
 
-    return new trip(line,delay,position_index,stations);
+    return new trip(line,delay,position_index,stations,end_arrival,routeId);
 }
 
 /*
