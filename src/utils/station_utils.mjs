@@ -9,7 +9,7 @@ export function SortString(stops,name){
     if (stops.length === 1){
         return stops;
     }else {
-        //Prende l'indice della parola e la posizione dell'oggetto nell'array
+        //takes the word index and the position in the object array
         let WordIndex = [];
         let index = [];
         for (let i in stops){
