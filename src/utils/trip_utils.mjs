@@ -1,6 +1,6 @@
 import station from '../data/stations/station.mjs';
 import trip from '../data/trips/trip.mjs';
-
+import polyline from "@mapbox/polyline"
 /*
 given the information from the direction api return an array of steps to take from a point to a point b
  */
@@ -17,6 +17,7 @@ export function CutDirectionArray(data){
                 step.push({
                     line: routes[i].legs[0].steps[j].transitDetails.line.shortName,
                     step_number : n_steps,
+                    map_points : routes[i].legs[0].steps[j].polyline.encodedPath,
                     departure_time : convertMillis(routes[i].legs[0].steps[j].transitDetails.departureTime.millis),
                     arrival_time: convertMillis(routes[i].legs[0].steps[j].transitDetails.departureTime.millis),
                     vehicle : routes[i].legs[0].steps[j].transitDetails.line.vehicle.name,
