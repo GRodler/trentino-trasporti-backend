@@ -1,5 +1,5 @@
 export default class Station{
-    constructor(name,id,lat,lon,routes,type) { //bisogna ricordarsi in fututo di gestire i vari duplicati
+    constructor(name,id,lat,lon,routes,type) {
         this.name = name;
         this.id = id;
         this.lat = lat;
