@@ -1,5 +1,5 @@
 import Extractor from "../extractor.mjs";
-import {CutDirectionArray,convertTrips} from  "../../utils/trip_utils.mjs"
+import {CutDirectionArray,convertTrips,CutDirectionPoly} from  "../../utils/trip_utils.mjs"
 
 export default class TripsHandler{
     constructor(stations,routes) {
@@ -38,7 +38,24 @@ export default class TripsHandler{
         const arrival_loc = arrival.lat + "," +arrival.lon;
         return CutDirectionArray(await this.e.getDirections(start_loc,arrival_loc,date));
     }
+    /*
+     gives the array of coordinates of point to follow from a start id and an arrival id, works even with the non-linked stations
+    */
+    async getDirectionPoly(start, arrival,date){
+        const start_loc = start.lat + "," + start.lon;
+        const arrival_loc = arrival.lat + "," +arrival.lon;
+        return CutDirectionPoly(await this.e.getDirections(start_loc,arrival_loc,date));
+    }
 
+    /*
+    gives an array of steps with the coordinates of the array
+     */
+    async getFinalPolyline(start_id,arrival_id,date){
+        const start = await this.stations.getStationId(start_id);
+        const arrival = await this.stations.getStationId(arrival_id);
+        return await this.getDirectionPoly(start,arrival,date);
+
+    }
     /*
     gives the trips from a start id and an arrival id, works even with the non-linked stations
      */
@@ -46,7 +63,6 @@ export default class TripsHandler{
         const start = await this.stations.getStationId(start_id);
         const arrival = await this.stations.getStationId(arrival_id);
         return await this.getDirectionsStations(start,arrival,date) ;
-
     }
 
 

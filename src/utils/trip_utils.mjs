@@ -17,7 +17,6 @@ export function CutDirectionArray(data){
                 step.push({
                     line: routes[i].legs[0].steps[j].transitDetails.line.shortName,
                     step_number : n_steps,
-                    map_points : routes[i].legs[0].steps[j].polyline.encodedPath,
                     departure_time : convertMillis(routes[i].legs[0].steps[j].transitDetails.departureTime.millis),
                     arrival_time: convertMillis(routes[i].legs[0].steps[j].transitDetails.departureTime.millis),
                     vehicle : routes[i].legs[0].steps[j].transitDetails.line.vehicle.name,
@@ -31,6 +30,43 @@ export function CutDirectionArray(data){
         output.push(step)
     }
     return output;
+}
+
+/*
+returns an array of point to follow for any steps
+ */
+export function CutDirectionPoly(data){
+    let output = [];
+    let routes = data.routes;
+
+    for (let i in routes){
+        let transit = routes[i].legs[0].steps
+        let step = [];
+        let n_steps = 1;
+        for (let j in transit){
+            if (transit[j].travelMode === "TRANSIT" ){
+                step.push({
+                    line: routes[i].legs[0].steps[j].transitDetails.line.shortName,
+                    step_number : n_steps,
+                    stations:{
+                        departure : createCostumStations(routes[i].legs[0].steps[j].transitDetails.departureStop,parseInt(j)),
+                        arrival : createCostumStations(routes[i].legs[0].steps[j].transitDetails.arrivalStop,parseInt(j)+1 )
+                    },
+                    map_points :convertPoly(routes[i].legs[0].steps[j].polyline.encodedPath)
+                });
+                n_steps ++;
+            }
+        }
+        output.push(step)
+    }
+    return output;
+}
+/*
+converts the polyline into an array
+ */
+function convertPoly(path){
+    return polyline.decode(path);
+
 }
 
 /*
