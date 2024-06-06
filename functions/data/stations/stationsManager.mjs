@@ -19,16 +19,9 @@ export default class StationsManager {
     }
     async createStationsArray(){
         const stops = await this.e.getStations();
-
-        let repeated = [];
         let output = [];
-
         for (let i in stops){
-
-            if (!repeated.includes(stops[i].stopName)){
-                output.push(new Station(stops[i].stopName,stops[i].stopId,stops[i].stopLat,stops[i].stopLon,await this.extractRoutes(stops[i].routes),stops[i].type))
-                //repeated.push(stations[i].stopName)
-            }
+            output.push(new Station(stops[i].stopName,stops[i].stopId,stops[i].stopLat,stops[i].stopLon,await this.extractRoutes(stops[i].routes),stops[i].type))
         }
 
         return output;

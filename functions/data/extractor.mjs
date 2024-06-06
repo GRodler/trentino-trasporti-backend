@@ -5,7 +5,6 @@ export default class Extractor{
     constructor() {
         //api parameters
         this.APP_URL = "https://app-tpl.tndigit.it/gtlservice";
-        this.SITE_STOPS = "fermate";
         this.STOPS_PATH = "stops";
         this.LINES_PATH = "routes";
         this.TRIPS_PATH = "trips_new";

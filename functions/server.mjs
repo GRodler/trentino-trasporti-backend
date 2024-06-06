@@ -51,6 +51,14 @@ router.get("/v1/viaggi",async (request,response)=>{
 
 });
 
+router.get("/v1/polyline",async (request,response)=>{
+    const start = request.query.start;
+    const arrival = request.query.arrival;
+    const time = request.query.time;
+    const t = new TripsHandler(m,r);
+    response.send(await t.getFinalPolyline(start,arrival,time));
+});
+
 app.use("/.netlify/functions/server",router)
 
 app.listen(port, () => {
