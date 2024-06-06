@@ -100,5 +100,57 @@ End-point funzionanti:
     }
   ],
    ``` 
-    
-  
+     
+  * ```/v1/polyline```:
+  * restituisce una lista di coordinate per arrivare da un determinata stazione ad un altra
+  * prende come query start={id stazione di partenza} e arrival={id stazione di arrivo} (uguale a sopra)
+  * serve solo se si desidera raoppresentare su una mappa il percorso da eseguire
+  * esempio risultato per ```https://trentinotrasportibackend.netlify.app/.netlify/functions/server/v1/polyline?start=16&arrival=977```:
+    ```json
+    [
+    [
+     {
+      "line": "B101",
+      "step_number": 1,
+      "stations": {
+        "departure": {
+          "name": "Cavalese, Autostazione",
+          "id": 10000,
+          "lat": 46.287981,
+          "lon": 11.463242
+        },
+        "arrival": {
+          "name": "Trento Main Train Station",
+          "id": 10001,
+          "lat": 46.07216,
+          "lon": 11.119413
+        }
+      },
+      "map_points": [
+        [46.28798, 11.46324],
+        [46.28798, 11.46317],
+        [46.28791, 11.46318],
+        ...
+         {
+      "line": "B401",
+      "step_number": 2,
+      "stations": {
+        "departure": {
+          "name": "Trento Main Train Station",
+          "id": 10001,
+          "lat": 46.07216,
+          "lon": 11.119413
+        },
+        "arrival": {
+          "name": "Stazione di Borgo Valsugana Centro",
+          "id": 10002,
+          "lat": 46.051456,
+          "lon": 11.4541644
+        }
+      },
+      "map_points": [
+        [46.07216, 11.11941],
+        [46.07205, 11.11974],
+        ...
+     },
+   ``` 
