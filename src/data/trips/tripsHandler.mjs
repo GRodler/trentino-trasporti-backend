@@ -42,14 +42,12 @@ export default class TripsHandler{
         for (let j in valid_routes){
             valid_ids.push(valid_routes[j].id);
         }
-        console.log(valid_ids)
+
         for (let i in trips){
-            console.log(trips[i].routeId)
             if (valid_ids.includes(parseInt(trips[i].routeId))){
                 output.push(trips[i]);
             }
         }
-        console.log(output)
         return output
     }
 
