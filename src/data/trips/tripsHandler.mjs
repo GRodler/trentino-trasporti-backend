@@ -24,10 +24,33 @@ export default class TripsHandler{
         }
 
         let trips = [];
-        let tripsE = await this.e.getTrips(stop.id,"E");
-        let tripsU = await this.e.getTrips(stop.id,"U");
-        trips= await convertTrips(trips.concat(tripsE,tripsU),await this.stations,await this.routes);
+        let tripsE = await this.e.getTrips(stop.api_id,"E");
+        let tripsU = await this.e.getTrips(stop.api_id,"U");
+
+        let filtered_trips = await this.validatesTrips(trips.concat(tripsE,tripsU),stop);
+        trips= await convertTrips(filtered_trips,await this.stations,await this.routes);
         return trips;
+    }
+
+    /*
+    given the stop and the raw trips data excludes the ones that are not in the trip array
+     */
+    async validatesTrips(trips,stop){
+        let output = [];
+        let valid_routes = stop.routes;
+        let valid_ids = [];
+        for (let j in valid_routes){
+            valid_ids.push(valid_routes[j].id);
+        }
+        console.log(valid_ids)
+        for (let i in trips){
+            console.log(trips[i].routeId)
+            if (valid_ids.includes(parseInt(trips[i].routeId))){
+                output.push(trips[i]);
+            }
+        }
+        console.log(output)
+        return output
     }
 
     /*

@@ -21,9 +21,8 @@ export default class StationsManager {
         const stops = await this.e.getStations();
         let output = [];
         for (let i in stops){
-            output.push(new Station(stops[i].stopName,stops[i].stopId,stops[i].stopLat,stops[i].stopLon,await this.extractRoutes(stops[i].routes),stops[i].type))
+            output.push(new Station(stops[i].stopId,stops[i].stopName,parseInt(i) ,stops[i].stopLat,stops[i].stopLon,await this.extractRoutes(stops[i].routes),stops[i].type))
         }
-
         return output;
     }
 
@@ -50,6 +49,22 @@ export default class StationsManager {
         const stops = await this.stations;
         for (let i in stops){
             if (parseInt(stops[i].id) === parseInt(id)) {
+                output = stops[i];
+                break;
+            }
+        }
+
+        return output;
+    }
+
+    /*
+  returns a single object station given an api_id
+    */
+    async getStationApiId(api_id){
+        let output = null;
+        const stops = await this.stations;
+        for (let i in stops){
+            if (parseInt(stops[i].api_id) === parseInt(api_id)) {
                 output = stops[i];
                 break;
             }

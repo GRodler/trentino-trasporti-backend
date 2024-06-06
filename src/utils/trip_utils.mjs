@@ -73,7 +73,7 @@ function convertPoly(path){
 creates a new costum stations with a costum id
  */
 function createCostumStations(raw_station,j){
-    return new station(raw_station.name, 10000 + j, raw_station.location.lat, raw_station.location.lng);
+    return new station(null,raw_station.name, 10000 + j, raw_station.location.lat, raw_station.location.lng);
 }
 /*
 convert a data into ISO 8601 from the millis from the 1970
@@ -111,7 +111,7 @@ async function convertTrip(raw_data,manager,routes){
     const end_arrival = raw_data.tripHeadsign;
     const routeId = raw_data.routeId;
     for (let i in raw_data.stopTimes){
-        const station = await manager.getStationId(raw_data.stopTimes[i].stopId)
+        const station = await manager.getStationApiId(raw_data.stopTimes[i].stopId)
         stations.push({
             station: {name : station.name ,id:station.id,lat:station.lat,lon:station.lon},
             arrival : checkDelay(raw_data.stopTimes[i].arrivalTime,i,position_index,delay),
