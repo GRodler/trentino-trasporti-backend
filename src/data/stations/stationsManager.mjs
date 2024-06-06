@@ -7,7 +7,7 @@ import {SortString,CalculateDistance} from "../../utils/station_utils.mjs"
 export default class StationsManager {
     constructor() {
         this.e = new Extractor();
-        this.stations = this.createStationsArray(); //e necessario utilizzare l'await ogni volta che si richiama l'attributo
+        this.stations = this.createStationsArray();
     }
 
     async extractRoutes(array){
